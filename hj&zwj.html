@@ -1,0 +1,272 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>周文杰的网站</title>
+<link href="css/zwj.css" rel="stylesheet" type="text/css">
+<link href="css/styles.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.8.21.custom.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <h1>周周周文杰</h1>
+        <h3 id="birth"></h3>
+        <img class="img_head" src="img/head.jpg" alt="520">
+        
+      
+        
+        
+    </div>
+    <div class="center">
+        <div class="le">
+            <div class="left">
+                <ul class="headlist">
+                    <li><a href="#">导航链接一</a></li>
+                    <li><a href="#">导航链接二</a></li>
+                    <li><a href="#">导航链接三</a></li>
+                    <li><a href="#">导航链接四</a></li>
+                </ul>
+            </div>
+         </div>
+        <div class="ri">
+            <div class="right">
+                <div id="container">
+                    <div id="list" style="left: -300px;">
+                        <img src="img/zwj5.jpg" alt="爱运动的肌肉男">
+                            <img src="img/zwj1.jpg" alt="犀利的眼神好帅耶">
+                            <img src="img/zwj2.jpg" alt="淡漠的表情">
+                            <img src="img/zwj3.jpg" alt="好牛逼的发型	">
+                            <img src="img/zwj4.jpg" alt="西湖的你">
+                            <img src="img/zwj5.jpg" alt="爱运动的肌肉男">
+                            <img src="img/zwj1.jpg" alt="犀利的眼神好帅耶">
+                    </div>
+                    <div id="buttons">
+                        <span index="1" class="on"></span>
+                        <span index="2"></span>
+                        <span index="3"></span>
+                        <span index="4"></span>
+                        <span index="5"></span>
+                    </div>
+                    <a href="javascript:;" id="prev" class="arrow">&lt;</a>
+                    <a href="javascript:;" id="next" class="arrow">&gt;</a>
+              
+
+              </div>
+              <h2>海阔天空</h2>
+               <p> 
+               
+               我曾怀疑我　走在沙漠中
+                    从不结果　无论种什么梦
+                    才张开翅膀　风却变沉默
+                    习惯伤痛能不能　算收获
+                    庆幸的是我　一直没回头
+                    终于发现　真的是有绿洲
+                    每把汗流了　生命变的厚重
+                    走出沮丧才看见　新宇宙
+                    海阔天空　在勇敢以后
+                    要拿执着　将命运的锁打破
+                    冷漠的人
+                    谢谢你们曾经看轻我
+                    让我不低头　更精采的活
+                    
+                    凌晨的窗口　失眠整夜以后
+                    看着黎明　从云里抬起了头
+                    日落是沉潜　日出是成熟
+                    只要是光一定会　灿烂的
+                    海阔天空　在勇敢以后
+                    要拿执着　将命运的锁打破
+                    冷漠的人
+                    谢谢你们曾经看轻我
+                    让我不低头　更精采的活
+                    
+                    海阔天空　狂风暴雨以后
+                    转过头　对旧心酸一笑而过
+                    最懂我的人
+                    谢谢一路默默的陪我
+                    让我拥有好故事可以说
+                    看未来　一步步来了
+               </p>
+               
+               
+                 <div class="example">
+                    <div class="player" >
+                        <div class="pl"></div>
+                        <div class="title"></div>
+                        <div class="artist"></div>
+                        <div class="cover"></div>
+                        <div class="controls">
+                            <div class="play"></div>
+                            <div class="pause"></div>
+                            <div class="rew"></div>
+                            <div class="fwd"></div>
+                        </div>
+                        <div class="volume"></div>
+                        <div class="tracker"></div>
+                    </div>
+                    <ul class="playlist hidden">
+                        <li audiourl="img/信乐团 - 海阔天空.mp3" artist="Maroon 5">海阔天空.mp3</li>
+                        
+                        <li audiourl="img/6039.mp3" cover="img/2.jpg" artist="平安">洋葱.mp3</li>
+                        
+                        <li audiourl="img/6039.mp3" cover="img/2.jpg" artist="周杰伦">你听得到.mp3</li>
+                    </ul>
+                
+                </div>
+                <div style="text-align:center;clear:both;">
+                <script src="/gg_bd_ad_720x90-2.js" type="text/javascript"></script>
+                </div>
+        
+              
+               
+               
+            </div>
+		</div>
+        
+  
+        
+</div>
+
+<script type="text/javascript">
+	window.onload = function () {
+    	var container = document.getElementById('container');
+        var list = document.getElementById('list');
+        var buttons = document.getElementById('buttons').getElementsByTagName('span');
+        var prev = document.getElementById('prev');
+        var next = document.getElementById('next');
+        var index = 1;
+        var len = 5;
+        var animated = false;
+        var interval = 3000;
+        var timer;
+
+    function animate (offset) {
+        if (offset == 0) {
+          return;
+        }
+        animated = true;
+        var time = 300;
+        var inteval = 10;
+        var speed = offset/(time/inteval);
+        var left = parseInt(list.style.left) + offset;
+
+   		var go = function (){
+        	if ( (speed > 0 && parseInt(list.style.left) < left) || (speed < 0 && parseInt(list.style.left) > left)) {
+          	   list.style.left = parseInt(list.style.left) + speed + 'px';
+           	   setTimeout(go, inteval);
+        	}
+       		else {
+           	   list.style.left = left + 'px';
+               if(left>-0){
+         	     list.style.left = -300 * len + 'px';
+               }
+               if(left<(-300 * len)) {
+                 list.style.left = '-300px';
+               }
+       	       animated = false;
+            }
+         }
+         go();
+      }
+
+      function showButton() {
+         for (var i = 0; i < buttons.length ; i++) {
+             if( buttons[i].className == 'on'){
+                 buttons[i].className = '';
+                 break;
+             }
+         }
+         buttons[index - 1].className = 'on';
+      }
+
+      function play() {
+         timer = setTimeout(function () {
+            next.onclick();
+            play();
+         }, interval);
+      }
+      function stop() {
+         clearTimeout(timer);
+      }
+
+      next.onclick = function () {
+         if (animated) {
+             return;
+         }
+         if (index == 5) {
+             index = 1;
+         }
+         else {
+             index += 1;
+         }
+          animate(-300);
+          showButton();
+      }
+      prev.onclick = function () {
+         if (animated) {
+            return;
+         }
+         if (index == 1) {
+            index = 5;
+         }
+         else {
+           	index -= 1;
+         }
+         animate(300);
+         showButton();
+      }
+
+      for (var i = 0; i < buttons.length; i++) {
+         buttons[i].onclick = function () {
+            if (animated) {
+                return;
+            }
+            if(this.className == 'on') {
+                return;
+            }
+            var myIndex = parseInt(this.getAttribute('index'));
+            var offset = -300 * (myIndex - index);
+
+            animate(offset);
+            index = myIndex;
+            showButton();
+         }
+      }
+      container.onmouseover = stop;
+      container.onmouseout = play;
+      play();
+
+   }
+   function getData(){
+	   var data=new Date();
+	   var year=data.getFullYear();
+	   var month=data.getMonth()+1;
+	   var day=data.getDate();
+	   var hour=data.getHours();
+	   var mini=data.getMinutes();
+	   var sec=data.getSeconds(); 
+	   var data1=new Date("1995-02-21").getTime();
+	   var nowdata=year+"-"+(month-1)+"-"+day;
+	   var data2=new Date(nowdata).getTime();
+	   var c = 60*60*24*1000;
+	   var res =parseInt( (data2 - data1)/c);
+	   var birth=document.getElementById("birth");
+	   birth.innerHTML=year+"-"+month+"-"+day+"  "+hour+":"+mini+":"+sec+"    "+"今天是文杰出生"+res+"天";
+	  
+   }
+    setInterval("getData()",1000);
+	
+
+	
+	
+</script>
+
+
+    <div class="footer">
+        <p>版权所有@copy贺娟</p>
+    </div>
+</body>
+</html>
